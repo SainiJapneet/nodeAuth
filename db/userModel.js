@@ -1,28 +1,19 @@
 const mongoose = require('mongoose');
 
-
-//user model => field and attributes like email , password
-
-//user schema => defines rules and structure for validating the data stored in the user model 
-
 const UserSchema = new mongoose.Schema({
-    //email field
 
     email: {
         type: String,
-        required: [true, 'Please provide an email'],
+        required: [true, 'Email is a required field'],
         unique: [true, 'Email Exist']
     },
 
-    //password field
 
     password: {
         type: String,
-        required: [true, 'Please provide a password'],
+        required: [true, 'Password is a required field'],
         unique: false,
     }
 })
-
-//export UserSchema
 
 module.exports = mongoose.model.Users || mongoose.model("Users", UserSchema);

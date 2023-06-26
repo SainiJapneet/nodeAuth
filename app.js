@@ -11,6 +11,14 @@ const User = require('./db/userModel');
 
 dbConnect()
 
+//cors error
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin","*");
+    res.setHeader("Access-Control-Allow-Headers","Origin, X-Requested-With, Content, Content-Type, Authorization");
+    res.setHeader("Access-Control-Allow-Methods","POST, GET, PATCH, PUT, DELETE, OPTIONS");
+    next();
+})
+
 app.use(express.json())
 
 
